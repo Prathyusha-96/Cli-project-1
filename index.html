@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    var readlinesync = require("readline-sync");
+var score=0;
+
+var highscores=[
+  {
+  name: "jahnavi",
+  score: 5,
+},
+
+{
+  name: "ram",
+  score: 4,
+ }, 
+]  
+
+
+var questions=[{
+  
+  question:"where do i live?",
+  answer:"hyderabad"
+},{
+  question:"Who is my favorite hero?",
+  answer:"maheshbabu"
+},{
+  question:"which food likes me",
+  answer:"pizza"
+},{
+  question:"which colour do i like?",
+  answer:"pink"
+},{
+  question:"What really makes me happy?",
+  answer:"food"
+
+}]
+var username=readlinesync.question("what is your name?");
+
+console.log("welcome"+username+"DO YOU KNOW Prathyusha");
+
+  
+function play(question,answer){
+
+  var useranswer=readlinesync.question(question);
+
+  if(useranswer === answer){
+    
+    console.log("right!");
+    score=score+1;
+
+  } else {
+    console.log("wrong!");
+    score=score-1;
+  }
+    console.log("current score: ", score);
+    console.log("--------");
+  
+}
+
+
+for(var i=0; i<questions.length; i++){
+  var currentquestion=questions[i];
+  play(currentquestion.question,currentquestion.answer);
+}
+
+console.log("congratulations! your scored:", score);
+
+console.log("check out the highscores")
+
+</body>
+</html>
